@@ -15,7 +15,11 @@ Then this window will show up:
 
 ![Import/Export Window](./import.png)
 
-And lastly download and drop [this JSON](./_Tue Dec 19 2017 11_18_41 GMT+0100.json)
+And lastly download and drop [this JSON](./_snippets_2017_12_19.json)
+
+## Contributions
+
+We would like to receive your contributions. Open an issue or send a Pull Request.
 
 ---
 
