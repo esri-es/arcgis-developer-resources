@@ -17,6 +17,10 @@ Then this window will show up:
 
 And lastly download and drop [this JSON](./_snippets_2017_12_19.json)
 
+Other third party snippets (non-related to ArcGIS Development):
+[bgrins/devtools-snippets](https://github.com/bgrins/devtools-snippets/blob/master/snippets.json) & 
+[bahmutov/code-snippets](https://github.com/bahmutov/code-snippets)
+
 ## Contributions
 
 We would like to receive your contributions. Open an issue or send a Pull Request.
