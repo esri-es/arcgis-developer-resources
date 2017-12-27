@@ -17,7 +17,7 @@ Are you looking for data sources, explanations, videos, code snippets, .... use 
 
 ### More advices to search resources 
 
-In Spanish, **translatation pending**.
+In Spanish, [**translatation pending**](https://github.com/esri-es/arcgis-developer-tips-and-tricks/issues/1).
 
 * Para buscar recursos de **forma desestructurada** -> usar el motor [Esri Search](https://esri-es.github.io/arcgis-search) (busca en múltiples fuentes: esri.com, cuentas de Github de Esri, esri.es, arcgis.com, etc)
 
