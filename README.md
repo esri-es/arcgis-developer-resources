@@ -5,11 +5,17 @@ Compilation of Tips and Tricks for ArcGIS Developers
 
 ## General tips & tricks
 
-### Optimized flow for solve your needs
+### Optimized flow for solving your needs
 
 This diagram shows the best way to solve your own problems or doubts, share ideas, etc.
 
 [![Diagrama Flujo óptimo para problemas, dudas, consultas, ideas, etc. - ArcGIS Developers](https://docs.google.com/drawings/d/e/2PACX-1vTwKhAflcJlY6FEiZBXazN03oAnOTeuA1DwRFtDkukiVV_T5I4evJpXRwi2AbP64HefgyxaGJN1C9mf/pub?w=800)](https://docs.google.com/drawings/d/e/2PACX-1vTwKhAflcJlY6FEiZBXazN03oAnOTeuA1DwRFtDkukiVV_T5I4evJpXRwi2AbP64HefgyxaGJN1C9mf/pub?w=2167&h=1023)
+
+### Follow ArcGIS experts
+
+If you want to be updated we recommend you to follow [the experts](https://esri-es.github.io/arcgis-experts).
+
+[![ArcGIS Experts](https://esri-es.github.io/arcgis-experts/assets/imgs/arcgis-experts-tool.png)](https://esri-es.github.io/arcgis-experts)
 
 ### Search ArcGIS content
 
