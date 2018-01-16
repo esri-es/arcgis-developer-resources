@@ -15,3 +15,7 @@ Learn more: [How to create new profiles](https://support.google.com/chrome/answe
 You can import some useful snippets to speedup your developments when making new storymaps, or building apps using Web AppBuilder, the ArcGIS API for JavaScript:
 
 Learn more: [How to import Chrome DevTools Snippets](./devtools-snippets/)
+
+## Awesome list for ArcGIS Developers
+
+[Find more resources about frontend development in ArcGIS](https://esri-es.github.io/awesome-arcgis/front-end/)
