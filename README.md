@@ -13,7 +13,9 @@ This diagram shows the best way to solve your own problems or doubts, share idea
 
 ### How to use GeoNet
 
-[GeoNet](https://community.esri.com/) is the Official Esri Community, it is used for: blog posting, Q&A, sharing resources (documents, code, etc), and more more. [Learn how to solve your questions using GeoNet](https://github.com/esri-es/arcgis-experts/blob/master/README.md#solving-your-questions-on-geonet)
+[GeoNet](https://community.esri.com/) is the Official Esri Community, it is used for: blog posting, Q&A, sharing resources (documents, code, etc), and more more. 
+
+[Learn how to GeoNet works](https://community.esri.com/docs/DOC-11240-geonet-manual)
 
 ### Follow ArcGIS experts
 
