@@ -11,6 +11,10 @@ This diagram shows the best way to solve your own problems or doubts, share idea
 
 [![Diagrama Flujo óptimo para problemas, dudas, consultas, ideas, etc. - ArcGIS Developers](https://docs.google.com/drawings/d/e/2PACX-1vTwKhAflcJlY6FEiZBXazN03oAnOTeuA1DwRFtDkukiVV_T5I4evJpXRwi2AbP64HefgyxaGJN1C9mf/pub?w=800)](https://docs.google.com/drawings/d/e/2PACX-1vTwKhAflcJlY6FEiZBXazN03oAnOTeuA1DwRFtDkukiVV_T5I4evJpXRwi2AbP64HefgyxaGJN1C9mf/pub?w=2167&h=1023)
 
+### How to use GeoNet
+
+[GeoNet](https://community.esri.com/) is the Official Esri Community, it is used for: blog posting, Q&A, sharing resources (documents, code, etc), and more more. [Learn how to solve your questions using GeoNet](https://github.com/esri-es/arcgis-experts/blob/master/README.md#solving-your-questions-on-geonet)
+
 ### Follow ArcGIS experts
 
 If you want to be updated we recommend you to follow [the experts](https://esri-es.github.io/arcgis-experts).
