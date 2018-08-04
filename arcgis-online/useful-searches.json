@@ -1,0 +1,46 @@
+[{
+		"content": "Vector tile basemaps built by the community",
+		"url": "http://www.arcgis.com/home/search.html?q=type%3A%22Vector%20Tile%20Service%22%20tags%3Abasemap&t=content&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+	{
+		"content": "Map journal storymaps",
+		"url": "http://www.arcgis.com/home/search.html?t=content&q=tags%3A%22map%20journal%22%20typekeywords%3A%22Ready%20To%20Use%22&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+	{
+		"content": "Self configured templates",
+		"url": "http://www.arcgis.com/home/search.html?t=content&q=type%3A%22Web%20Mapping%20Application%22%20typekeywords%3A%22selfConfigured%22%20NOT%20typekeywords%3A%22Ready%20To%20Use%22&start=1&sortOrder=desc&sortField=numviews",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+	{
+		"content": "Code samples",
+		"url": "http://www.arcgis.com/home/search.html?q=%28type%3A%22code%20samples%22%20OR%20type%3A%22add-ins%22%20OR%20type%3A%22geoprocessing%20samples%22%29%20-type%3A%22Code%20Attachment%22%20-type%3A%22Featured%20Items%22%20-type%3A%22Symbol%20Set%22%20-type%3A%22Color%20Set%22%20-type%3A%22Windows%20Viewer%20Add%20In%22%20-type%3A%22Windows%20Viewer%20Configuration%22&start=1&sortOrder=desc&sortField=relevance%29",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+	{
+		"content": "CSV files",
+		"url": "https://www.arcgis.com/home/search.html?q=typekeywords%3Acsv&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+	{
+		"content": "GeoDatabases (GDB) files",
+		"url": "https://www.arcgis.com/home/search.html?q=typekeywords%3AGeodatabase&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+	{
+		"content": "GeoJSON files",
+		"url": "https://www.arcgis.com/home/search.html?q=typekeywords%3Ageojson&start=1&sortOrder=desc&sortField=numviews",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+	{
+		"content": "LAS files",
+		"url": "https://www.arcgis.com/home/search.html?q=owner%3A3DGISTeam%20las&restrict=false&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+	{
+		"content": "Shapefiles",
+		"url": "https://www.arcgis.com/home/search.html?q=typekeywords%3Ashapefile&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	}
+]

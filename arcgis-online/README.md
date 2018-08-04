@@ -9,6 +9,9 @@ There is some info in the [Items and item types](http://resources.arcgis.com/en/
 Did you know you can embed the ArcGIS Online Viewer?
 
 ## Search content
+
+We have build the [ArcGIS Online Advanced search](https://esri-es.github.io/arcgis-developer-tips-and-tricks/arcgis-online/search) interface to help you find items in ArcGIS Online.
+
 ### Search by typekeywords
 
 |Typekeywords|Description|
@@ -31,14 +34,9 @@ Use the keyword `owner:[REPLACE_WITH_USERNAME]`.
 
 ### Useful searches
 
-There are some searches that you may want to do but there is no specific metadata for those. Here you will find some of them:
+There are some searches that you may want to do but there is no specific metadata for those.
 
-|Content|Search|
-|---|---|
-|[Vector tile basemaps built by the community](http://www.arcgis.com/home/search.html?q=type%3A%22Vector%20Tile%20Service%22%20tags%3Abasemap&t=content&start=1&sortOrder=desc&sortField=relevance)|type:"Vector Tile Service" tags:basemap
-|[Map journal storymaps](http://www.arcgis.com/home/search.html?t=content&q=tags%3A%22map%20journal%22%20typekeywords%3A%22Ready%20To%20Use%22&start=1&sortOrder=desc&sortField=relevance)|tags:"map journal" typekeywords:"Ready To Use"|
-|[Self configured templates](http://www.arcgis.com/home/search.html?t=content&q=type%3A%22Web%20Mapping%20Application%22%20typekeywords%3A%22selfConfigured%22%20NOT%20typekeywords%3A%22Ready%20To%20Use%22&start=1&sortOrder=desc&sortField=numviews)|type:"Web Mapping Application" typekeywords:"selfConfigured" NOT typekeywords:"Ready To Use"
-|<a name="codesharing"></a>[Code samples](http://www.arcgis.com/home/search.html?q=%28type%3A%22code%20samples%22%20OR%20type%3A%22add-ins%22%20OR%20type%3A%22geoprocessing%20samples%22%29%20-type%3A%22Code%20Attachment%22%20-type%3A%22Featured%20Items%22%20-type%3A%22Symbol%20Set%22%20-type%3A%22Color%20Set%22%20-type%3A%22Windows%20Viewer%20Add%20In%22%20-type%3A%22Windows%20Viewer%20Configuration%22&start=1&sortOrder=desc&sortField=relevance%29) (used by [codesharing.arcgis.com](http://codesharing.arcgis.com/))| type:"code samples" OR type:"add-ins" OR type:"geoprocessing samples") -type:"Code Attachment" -type:"Featured Items" -type:"Symbol Set" -type:"Color Set" -type:"Windows Viewer Add In" -type:"Windows Viewer Configuration"|
+You can find them at: [ArcGIS Search interface](https://esri-es.github.io/arcgis-developer-tips-and-tricks/arcgis-online/search) or [useful-searches.json](./useful-searches.json)
 
 ### Groups
 
