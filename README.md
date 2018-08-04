@@ -14,11 +14,13 @@ Technology agnostic
 
 This diagram shows the best way to solve your own problems or doubts, share ideas, etc.
 
-[![Diagrama Flujo óptimo para problemas, dudas, consultas, ideas, etc. - ArcGIS Developers](https://docs.google.com/drawings/d/e/2PACX-1vTwKhAflcJlY6FEiZBXazN03oAnOTeuA1DwRFtDkukiVV_T5I4evJpXRwi2AbP64HefgyxaGJN1C9mf/pub?w=800)](https://docs.google.com/drawings/d/e/2PACX-1vTwKhAflcJlY6FEiZBXazN03oAnOTeuA1DwRFtDkukiVV_T5I4evJpXRwi2AbP64HefgyxaGJN1C9mf/pub?w=2167&h=1023)
+[![Diagrama Flujo óptimo para problemas, dudas, consultas, ideas, etc. - ArcGIS Developers](https://docs.google.com/drawings/d/e/2PACX-1vTwKhAflcJlY6FEiZBXazN03oAnOTeuA1DwRFtDkukiVV_T5I4evJpXRwi2AbP64HefgyxaGJN1C9mf/pub?w=800)](https://docs.google.com/drawings/d/10wn0eFBefNuNB2cVS_Z0R3jRYSH4i3apV_uCE2RFU-M/edit?usp=sharing)
 
 ### How to use GeoNet
 
-[GeoNet](https://community.esri.com/) is the Official Esri Community, it is used for: blog posting, Q&A, sharing resources (documents, code, etc), and more more. [Learn how to solve your questions using GeoNet](https://github.com/esri-es/arcgis-experts/blob/master/README.md#solving-your-questions-on-geonet)
+[GeoNet](https://community.esri.com/) is the Official Esri Community, it is used for: blog posting, Q&A, sharing resources (documents, code, etc), and more more. 
+
+[Learn how to GeoNet works](https://community.esri.com/docs/DOC-11240-geonet-manual)
 
 ### Follow ArcGIS experts
 
