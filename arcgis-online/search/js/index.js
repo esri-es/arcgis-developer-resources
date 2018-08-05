@@ -10,7 +10,34 @@ window.$APP={
     ouptut:[]
 }
 
-var columns = [
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+function truncateDecimals(number, digits) {
+    var multiplier = Math.pow(10, digits),
+        adjustedNum = number * multiplier,
+        truncatedNum = Math[adjustedNum < 0 ? 'ceil' : 'floor'](adjustedNum);
+
+    return truncatedNum / multiplier;
+};
+
+function extentToString(elem) {
+    var tl = elem[0].join(', ');
+        br = elem[1].join(', ');
+    return `[[${tl}], [${br}]]`;
+}
+
+/*var columns = [
 
     {
         field: "Thumbnail",
@@ -36,10 +63,10 @@ var columns = [
         field: "Views",
         value: "elem.numViews"
     }
-];
+];*/
 
 
-function advancedSearchItems(searchParams){
+function advancedSearchItems(searchParams, columns){
     (function ($APP) {
 
         var s = document.createElement('script');
@@ -65,7 +92,11 @@ function advancedSearchItems(searchParams){
 
                     var output = [];
                     for(i=0; i<columns.length; i++){
-                        output.push(eval(columns[i].value));
+                        var val = eval(columns[i].value);
+                        if( typeof(val) === "object" && val !== null){
+                            val = val.join(", ");
+                        }
+                        output.push(val);
                     }
                     return output;
                 }));
@@ -73,10 +104,10 @@ function advancedSearchItems(searchParams){
 
                 if(response.nextStart!==-1 && response.nextStart < searchParams.num){
                     searchParams.start=response.nextStart;
-                    advancedSearchItems(searchParams);
+                    advancedSearchItems(searchParams, columns);
                 }else{
 
-                    console.table($APP.ouptut);
+                    //console.table($APP.ouptut);
                     var template = $.templates("#itemTmpl");
 
                     var htmlOutput = template.render({
@@ -95,16 +126,24 @@ function advancedSearchItems(searchParams){
 
 $(document).ready(function(){
     $('#search-form').submit(function(){
+        var params = $("#fields input:checked").toArray();
+        $APP.ouptut = [];
+        columns = params.map(function(elem){
+            return {
+                field: elem.name,
+                value: elem.value
+            }
+        });
+
         searchParams.q = $('input[name="q"]').val()
-        advancedSearchItems(searchParams);
+        advancedSearchItems(searchParams, columns);
         return false;
     })
 
+    // Loading useful searches
     var template = $.templates("#usefulSearchesTmpl");
     $.getJSON( "../useful-searches.json",function(data){
-        console.log(data);
         var htmlOutput = template.render({data: data});
-
         $("#list-useful-searches").html(htmlOutput);
     });
 

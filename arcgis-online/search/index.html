@@ -1,3 +1,10 @@
+<!--
+Ideas:
+*   Create a landing with useful searches (linking: awesome and this page): VR
+Experiences, GDB files, 3D Meshes, etc.
+*   Create an awesome.maps.arcgis.com org: with groups -> awesome item searches,
+awesome resources, arcgis experts profiles?, etc.
+-->
 <!doctype html>
 
 <html lang="en">
@@ -18,6 +25,10 @@
         width:100%;
         height: 80%;
         border: 1px solid #ccc;
+    }
+    #fields label{
+        display: inline-block;
+        margin-right: .7rem;
     }
     [data-modal="modal-experts"] .modal-content{
         height: 100%;
@@ -70,126 +81,481 @@
             |
             <a class="js-modal-toggle" href="#" data-modal="modal-useful-searches">Uselful searches</a>
             |
-            Esri accounts
-        </form>
-    </div>
-
-    <div class="column-24" id="results">
-
-    </div>
-
-    <!-- Just before end of body -->
-    <script src="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.0.2/js/calcite-web.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.0.min.js"></script>
-    <script src="js/jsrender.min.js"></script>
-    <script src="js/index.js"></script>
-    <script>
-    window.onload = function () {
-        calcite.init();
-    };
-    </script>
-
-    <script id="itemTmpl" type="text/x-jsrender">
-        <p class="font-size--2"><strong>{{:results.length}} items found</strong> (<a href="#">Show REST endpoint</a>)</p>
-
-        <table class="table modifier-class table-striped">
-        <thead>
-            <tr>
-                {{for columns}}
-                    <th>{{:field}}</th>
-                {{/for}}
-
-            </tr>
-        </thead>
-        <tbody>
-            {{for results}}
-            <tr>
-            {{for #parent.data[#index]}}
-            <td>{{:#parent.data[#index]}}</td>
-
-            {{/for}}
-            </tr>
-            {{/for}}
-
-
-        </tbody>
-        </table>
-    </script>
-
-    <script id="usefulSearchesTmpl" type="text/x-jsrender">
-    {{for data}}
-    <li>
-        <a href="{{:url}}" target="_blank">{{:content}}</a> (by {{:contributor}})
-    </li>
-    {{/for}}
-    </script>
-
-    <div class="js-modal modal-overlay modifier-class" data-modal="modal-help">
-      <div class="modal-content column-12" role="dialog" aria-labelledby="modal" role="dialog">
-
-        <a class="js-modal-toggle right" href="#" aria-label="close-modal">
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 32 32" class="svg-icon"><path d="M18.404 16l9.9 9.9-2.404 2.404-9.9-9.9-9.9 9.9L3.696 25.9l9.9-9.9-9.9-9.898L6.1 3.698l9.9 9.899 9.9-9.9 2.404 2.406-9.9 9.898z"/></svg>
-        </a>
-
-        <h3 class='trailer-half'>Help!</h3>
-
-        <ul>
-            <li>Esri accounts (owners)</li>
-            <li>ArcGIS Online GeoNet or Github issues</li>
-            <li>More search interfaces: arcgis.com, organization, etc</li>
-            <li>Data providers</li>
-            <li>Other content sources: Portal API, ...</li>
-        </ul>
-
-        <div class="text-right">
-            <button class="btn js-modal-toggle">okay</button>
-            <button class="btn btn-clear js-modal-toggle">cancel</button>
+            <a href="https://github.com/esri-es/awesome-arcgis/tree/master/esri#arcgis-online-users" target="_blank">Esri's accounts</a>
         </div>
-      </div>
-    </div>
+        <div class="pre-3 column-19" id="searchParams">
 
-    <div class="js-modal modal-overlay modifier-class" data-modal="modal-experts">
-      <div class="modal-content column-20" role="dialog" aria-labelledby="modal" role="dialog">
+            <!--
+            TODO: https://developers.arcgis.com/rest/users-groups-and-items/search.htm
+            num: (empty=all)
+            sortField (title, created, type, owner, modified, avgrating, numratings, numcomments, and numviews.)
+            sortOrder asc | desc
+
+            Filter by Bounding box (checkbox+map)
+            categories
+            categoryFilters
+            countFields: tags, type, access, contentstatus, categories
+            countSize: countSize=200
+            -->
+
+            <label class="trailer-0">
+                <fieldset class="fieldset-checkbox" id="fields">
+                    <legend>Show fields (columns)</legend>
+
+                    <label>
+                        <input name="Thumbnail" type="checkbox" checked value="'<img src=&quot;https://www.arcgis.com/sharing/rest/content/items/'+elem.id+'/info/'+elem.thumbnail+'&quot;>'">
+                        Thumbnail
+                    </label>
+
+                    <label>
+                        <input name="Title" type="checkbox" value="elem.title" checked>
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="The title of the item. This is the name that's displayed to users and by which they refer to the item. Every item must have a title.">
+                            Title
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Name" type="checkbox" value="elem.name">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="The file name of the item for file types. Read-only.">
+                            File name
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Details" type="checkbox" value="'<a href=&quot;https://www.arcgis.com/home/item.html?id='+elem.id+'&quot; target=&quot;_blank&quot;>Details</a>'" checked>
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="Link to item details page">
+                            Details
+                        </span>
+
+                    </label>
+
+                    <label>
+                        <input name="Owner" type="checkbox" value="elem.owner" checked>
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="The username of the user who owns this item.">
+                            Owner
+                        </span>
+                    </label>
+
+
+                    <label>
+                        <input name="Type" type="checkbox" value="elem.type" checked>
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="The GIS content type of this item. Example types include Web Map, Map Service, Shapefile, and Web Mapping Application. See the overview section of Items and item types to get an understanding of the item type hierarchy.">
+                            Type
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Type keywords" type="checkbox" value="elem.typeKeywords">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="An array of keywords that further describes the type of this item. Each item is tagged with a set of type keywords that are derived based on its primary type.">
+                            Type keywords
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Views" type="checkbox" value="elem.numViews" checked>
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="Number of views of the item.">
+                            #Views
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Comments" type="checkbox" value="elem.numComments">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="Number of comments on the item.">
+                            #Comments
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Ratings" type="checkbox" value="elem.numRatings">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="Number of ratings on the item.">
+                            #Ratings
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Average rating" type="checkbox" value="truncateDecimals(elem.avgRating, 2)">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="Average rating. Uses a weighted average called 'Bayesian average.'">
+                            Average rating
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Created" type="checkbox" value="formatDate(elem.created)">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="The date the item was created.">
+                            Creation date
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Modification" type="checkbox" value="formatDate(elem.modified)">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="The date the item was last modified.">
+                            Modification date
+                        </span>
+                    </label>
+
+
+                    <label>
+                        <input name="Snippet" type="checkbox" value="elem.snippet">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="A short summary description of the item.">
+                            Snippet
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Description" type="checkbox" value="elem.description">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="Item description.">
+                            Description
+                        </span>
+                    </label>
+
+
+                    <label>
+                        <input name="Extent" type="checkbox" value="extentToString(elem.extent)">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="An array that defines the bounding rectangle of the item. Should always be in WGS84.">
+                            Extent
+                        </span>
+                    </label>
+
+
+                    <label>
+                        <input name="App categories" type="checkbox" value="elem.appCategories">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="An array that primarily applies to a list of categories that the application item is applicable to.">
+                            App categories
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Categories" type="checkbox" value="elem.categories">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="An array of organization categories that are set on the item. Example: [ &quot;/Categories/Hydrography/River&quot;, &quot;/Categories/Protected sites&quot; ].">
+                            Categories
+                        </span>
+                    </label>
+
+
+                    <label>
+                        <input name="Banner" type="checkbox" value="elem.banner">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="Primarily applies to the banner associated with an application. The URL to the banner used for the application.">
+                            Banner
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Culture" type="checkbox" value="elem.culture">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="The item locale information (language and country).">
+                            Culture
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Group designations" type="checkbox" value="elem.groupDesignations">
+                        Group designations
+                    </label>
+
+                    <label>
+                        <input name="ID" type="checkbox" value="elem.id">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="The unique ID for this item.">
+                            ID
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Industries" type="checkbox" value="elem.industries">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="An array that primarily applies to industries associated with the application.">
+                            Industries
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Languages" type="checkbox" value="elem.languages">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="An array that primarily applies to languages associated with the application.">
+                            Languages
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Marketplace" type="checkbox" value="elem.listed">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="If true, the item is listed in the marketplace.">
+                            Marketplace
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="License" type="checkbox" value="elem.licenseInfo">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="Any license information or restrictions.">
+                            License
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Properties" type="checkbox" value="elem.properties">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="A JSON object that primarily applies to system requirements, Terms and Conditions, version, supported platforms, YouTube video ID, etc associated with the application.">
+                            Properties
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Proxy filter" type="checkbox" value="elem.proxyFilter">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="A JSON object used to restrict service item response results based on specified filter, i.e. limit results returned from a geocode service based on defined filters.See serviceProxyFilter for object details.">
+                            Proxy filter
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Score completeness" type="checkbox" value="elem.scoreCompleteness">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="Item information completeness score based upon item snippet, thumbnail, description, title, tags etc.">
+                            Score completeness
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Screenshots" type="checkbox" value="elem.screenshots">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="An array that primarily applies to screenshots associated with an application. The URL to the screenshots used for the application.">
+                            Screenshots
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Size" type="checkbox" value="elem.size">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="The size of the item in bytes.">
+                            Size
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Spatial reference" type="checkbox" value="elem.spatialReference">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="The coordinate system of the item.">
+                            Spatial reference
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Tags" type="checkbox" value="elem.tags">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="An array of user defined tags that describe the item.">
+                            Tags
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="URL" type="checkbox" value="elem.url">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="The URL for the resource represented by the item. Applies only to items that represent web-accessible resources such as map services.">
+                            URL
+                        </span>
+                    </label>
+
+                    <label>
+                        <input name="Access Information" type="checkbox" value="elem.accessInformation">
+                        <span
+                            class="tooltip tooltip-multiline modifier-class"
+                            aria-label="Information on the source of the item and its copyright status.">
+                            Access Information
+                        </span>
+                    </label>
+        </fieldset>
+    </label>
+</div>
+</form>
+
+
+
+
+<div class="column-24" id="results">
+
+</div>
+</div>
+<!-- Just before end of body -->
+<script src="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.0.2/js/calcite-web.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.0.min.js"></script>
+<script src="js/jsrender.min.js"></script>
+<script src="js/index.js"></script>
+<script>
+window.onload = function () {
+    calcite.init();
+};
+</script>
+
+<script id="itemTmpl" type="text/x-jsrender">
+<p class="font-size--2"><strong>{{:results.length}} items found</strong> (<a href="#">Show REST endpoint</a>)</p>
+
+<table class="table modifier-class table-striped">
+<thead>
+<tr>
+{{for columns}}
+<th>{{:field}}</th>
+{{/for}}
+
+</tr>
+</thead>
+<tbody>
+{{for results}}
+<tr>
+{{for #parent.data[#index]}}
+<td>{{:#parent.data[#index]}}</td>
+
+{{/for}}
+</tr>
+{{/for}}
+
+
+</tbody>
+</table>
+</script>
+
+<script id="usefulSearchesTmpl" type="text/x-jsrender">
+{{for data}}
+<li>
+<a href="{{:url}}" target="_blank">{{:content}}</a> (by {{:contributor}})
+</li>
+{{/for}}
+</script>
+
+<div class="js-modal modal-overlay modifier-class" data-modal="modal-help">
+    <div class="modal-content column-12" role="dialog" aria-labelledby="modal" role="dialog">
 
         <a class="js-modal-toggle right" href="#" aria-label="close-modal">
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 32 32" class="svg-icon"><path d="M18.404 16l9.9 9.9-2.404 2.404-9.9-9.9-9.9 9.9L3.696 25.9l9.9-9.9-9.9-9.898L6.1 3.698l9.9 9.899 9.9-9.9 2.404 2.406-9.9 9.898z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 32 32" class="svg-icon"><path d="M18.404 16l9.9 9.9-2.404 2.404-9.9-9.9-9.9 9.9L3.696 25.9l9.9-9.9-9.9-9.898L6.1 3.698l9.9 9.899 9.9-9.9 2.404 2.406-9.9 9.898z"/></svg>
         </a>
 
-        <h3 class='trailer-half'>ArcGIS experts</h3>
-
-        <iframe id="experts-iframe" src="https://esri-es.github.io/arcgis-experts/?awesome=false&header=false&suggestions=false"></iframe>
-
-        <div class="text-right">
-            <button class="btn js-modal-toggle">okay</button>
-            <button class="btn btn-clear js-modal-toggle">cancel</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="js-modal modal-overlay modifier-class" data-modal="modal-useful-searches">
-      <div class="modal-content column-12" role="dialog" aria-labelledby="modal" role="dialog">
-
-        <a class="js-modal-toggle right" href="#" aria-label="close-modal">
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 32 32" class="svg-icon"><path d="M18.404 16l9.9 9.9-2.404 2.404-9.9-9.9-9.9 9.9L3.696 25.9l9.9-9.9-9.9-9.898L6.1 3.698l9.9 9.899 9.9-9.9 2.404 2.406-9.9 9.898z"/></svg>
-        </a>
-
-        <h3 class='trailer-half'>Useful searches</h3>
+        <h3 class='trailer-half'>Help</h3>
 
         <p>
-            Here you will find some pre-build searches, if you are not capable
-            of finding what you are looking feel free to ask for help
-            <a href="https://github.com/esri-es/arcgis-developer-tips-and-tricks/issues/new">
-                opening one issue</a>:
-        </p>
-        <ul id="list-useful-searches">
-        </ul>
+            If you need help to find more resources you can ask in the <a
+            href="https://community.esri.com/community/gis/web-gis/arcgisonline">ArcGIS
+            Online place at Geonet</a> or <a href="https://github.com/esri-es/arcgis-developer-tips-and-tricks/issues/new">
+                open an issue on Github</a>
+            </p>
+            <p>
+                Remember that Esri also provides other interfaces to search and
+                explore ArcGIS Online items, here are some of them:
+            </p>
+            <ul>
+                <li><a href="https://www.arcgis.com/home/search.html" target="_blank">ArcGIS Online Search</a></li>
+                <li><a href="http://hhkaos.maps.arcgis.com/home/content.html" target="_blank">ArcGIS Online Private Search (Sign in required)</a></li>
+                <li><a href="https://www.arcgis.com/home/webmap/viewer.html?useExisting=1" target="_blank">Web Map Viewer Search (Sign in required)</a></li>
+                <li><a href="https://livingatlas.arcgis.com/en/browse/#d=2" target="_blank">Living Atlas explorer (Curated content)</a></li>
+                <li><a href="http://hub.arcgis.com/search" target="_blank">ArcGIS Hub Search (Open Data)</a></li>
+                <li><a href="http://solutions.arcgis.com/gallery/#s=0" target="_blank">Solutions (Esri's Solutions)</a></li>
+                <li>...</li>
+            </ul>
+            <p>
+                If you want to learn more about <a href="https://esri-es.github.io/awesome-arcgis/arcgis/content/data-providers/">
+                    Esri data providers</a> and the <a href="https://esri-es.github.io/awesome-arcgis/esri/open-vision/open-specifications/arcgis-rest-api/">
+                        ArcGIS REST APIs</a> we used to build this search interface check the
+                        <a href="https://esri-es.github.io/awesome-arcgis/arcgis/products/extensions/network-analyst/">Awesome ArcGIS Project</a>.
+                    </p>
 
-        <div class="text-right">
-            <button class="btn js-modal-toggle">okay</button>
-            <button class="btn btn-clear js-modal-toggle">cancel</button>
-        </div>
-      </div>
-    </div>
+                    <div class="text-right">
+                        <button class="btn js-modal-toggle">okay</button>
+                        <button class="btn btn-clear js-modal-toggle">cancel</button>
+                    </div>
+                </div>
+            </div>
 
-</body>
-</html>
+            <div class="js-modal modal-overlay modifier-class" data-modal="modal-experts">
+                <div class="modal-content column-20" role="dialog" aria-labelledby="modal" role="dialog">
+
+                    <a class="js-modal-toggle right" href="#" aria-label="close-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 32 32" class="svg-icon"><path d="M18.404 16l9.9 9.9-2.404 2.404-9.9-9.9-9.9 9.9L3.696 25.9l9.9-9.9-9.9-9.898L6.1 3.698l9.9 9.899 9.9-9.9 2.404 2.406-9.9 9.898z"/></svg>
+                    </a>
+
+                    <h3 class='trailer-half'>ArcGIS experts</h3>
+
+                    <iframe id="experts-iframe" src="https://esri-es.github.io/arcgis-experts/?awesome=false&header=false&suggestions=false"></iframe>
+
+                    <div class="text-right">
+                        <button class="btn js-modal-toggle">okay</button>
+                        <button class="btn btn-clear js-modal-toggle">cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="js-modal modal-overlay modifier-class" data-modal="modal-useful-searches">
+                <div class="modal-content column-12" role="dialog" aria-labelledby="modal" role="dialog">
+
+                    <a class="js-modal-toggle right" href="#" aria-label="close-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 32 32" class="svg-icon"><path d="M18.404 16l9.9 9.9-2.404 2.404-9.9-9.9-9.9 9.9L3.696 25.9l9.9-9.9-9.9-9.898L6.1 3.698l9.9 9.899 9.9-9.9 2.404 2.406-9.9 9.898z"/></svg>
+                    </a>
+
+                    <h3 class='trailer-half'>Useful searches</h3>
+
+                    <p>
+                        Here you will find some pre-build searches, if you are not capable
+                        of finding what you are looking feel free to ask for help
+                        <a href="https://github.com/esri-es/arcgis-developer-tips-and-tricks/issues/new">
+                            opening one issue</a>:
+                        </p>
+                        <ul id="list-useful-searches">
+                        </ul>
+
+                        <div class="text-right">
+                            <button class="btn js-modal-toggle">okay</button>
+                            <button class="btn btn-clear js-modal-toggle">cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+            </body>
+            </html>

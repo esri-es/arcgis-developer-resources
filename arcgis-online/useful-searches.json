@@ -42,5 +42,51 @@
 		"content": "Shapefiles",
 		"url": "https://www.arcgis.com/home/search.html?q=typekeywords%3Ashapefile&start=1&sortOrder=desc&sortField=relevance",
 		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+    {
+		"content": "VR360: A 360-degree virtual reality experience that lets you explore a set of connected, geo-located panoramic 3D visualizations or photos)",
+		"url": "http://www.arcgis.com/home/search.html?q=typekeywords%3AVR360&t=content&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+    {
+		"content": "Web Map (Collector Ready): Web map that is Collector ready and will be available in Collector. The Map contains at least one editable layer that supports versioning",
+		"url": "http://www.arcgis.com/home/search.html?q=type%3A%22Web%20Map%22%20typekeywords%3ACollector&t=content&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+    {
+		"content": "Web Map (Offline Ready): Web map being capable of working offline. The map contains only layers that are offline capable",
+		"url": "http://www.arcgis.com/home/search.html?q=type%3A%22Web%20Map%22%20typekeywords%3AOffline&t=content&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+    {
+		"content": "Geocoding Service: ArcGIS Server Geocoding Service. The URL to the service is stored in the url property of the item",
+		"url": "http://www.arcgis.com/home/search.html?q=type%3A%22Geocoding%20Service%22&t=content&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+    {
+		"content": "Mobile Map Package",
+		"url": "http://www.arcgis.com/home/search.html?q=type%3A%22Mobile%20Map%20Package%22&t=content&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+    {
+		"content": "CityEngine Web Scene: An interactive 3D display of geospatial content created with CityEngine",
+		"url": "http://www.arcgis.com/home/search.html?q=type%3A%22CityEngine%20Web%20Scene%22&t=content&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+    {
+		"content": "Organization's public items",
+		"url": "http://www.arcgis.com/home/search.html?q=orgid%3AP3ePLMYs2RVChkJx&t=content&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+    {
+		"content": "Organization's public Groups (Groups owned by users in an org.)",
+		"url": "http://www.arcgis.com/home/search.html?q=orgid%3AP3ePLMYs2RVChkJx&start=1&sortOrder=desc&sortField=relevance#groups",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+	},
+    {
+		"content": "User's public groups",
+		"url": "http://www.arcgis.com/home/search.html?q=owner%3Aesri&t=groups&focus=groups&start=1&sortOrder=desc&sortField=relevance",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
 	}
+
 ]
