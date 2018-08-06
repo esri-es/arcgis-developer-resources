@@ -37,6 +37,18 @@ function extentToString(elem) {
     return `[[${tl}], [${br}]]`;
 }
 
+function generateThumbnail(elem){
+    if(!elem.thumbnail){
+        console.warn(`Thumbnail not found for item: ${elem.id} (setting default img)`);
+        elem.thumbnail = 'imgs/ago_downloaded.png';
+    }else{
+        elem.thumbnail = `https://www.arcgis.com/sharing/rest/content/items/${elem.id}/info/${elem.thumbnail}`;
+    }
+    return `<img
+                src="${elem.thumbnail}"
+                alt="Thumbnail">`;
+}
+
 /*var columns = [
 
 {
