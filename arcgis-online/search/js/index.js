@@ -13,9 +13,9 @@ window.$APP={
 
 function formatDate(date) {
     var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
+    year = d.getFullYear();
 
     if (month.length < 2) month = '0' + month;
     if (day.length < 2) day = '0' + day;
@@ -25,44 +25,44 @@ function formatDate(date) {
 
 function truncateDecimals(number, digits) {
     var multiplier = Math.pow(10, digits),
-        adjustedNum = number * multiplier,
-        truncatedNum = Math[adjustedNum < 0 ? 'ceil' : 'floor'](adjustedNum);
+    adjustedNum = number * multiplier,
+    truncatedNum = Math[adjustedNum < 0 ? 'ceil' : 'floor'](adjustedNum);
 
     return truncatedNum / multiplier;
 };
 
 function extentToString(elem) {
     var tl = elem[0].join(', ');
-        br = elem[1].join(', ');
+    br = elem[1].join(', ');
     return `[[${tl}], [${br}]]`;
 }
 
 /*var columns = [
 
-    {
-        field: "Thumbnail",
-        value: "'<img src=\"https://www.arcgis.com/sharing/rest/content/items/'+elem.id+'/info/'+elem.thumbnail+'\">'"
-    },
-    {
-        field: "Title",
-        value: "elem.title"
-    },
-    {
-        field: "Details",
-        value: "'<a href=\"https://www.arcgis.com/home/item.html?id='+elem.id+'\">Details</a>'"
-    },
-    {
-        field: "Type",
-        value: "elem.type"
-    },
-    {
-        field: "Owner",
-        value: "elem.owner"
-    },
-    {
-        field: "Views",
-        value: "elem.numViews"
-    }
+{
+field: "Thumbnail",
+value: "'<img src=\"https://www.arcgis.com/sharing/rest/content/items/'+elem.id+'/info/'+elem.thumbnail+'\">'"
+},
+{
+field: "Title",
+value: "elem.title"
+},
+{
+field: "Details",
+value: "'<a href=\"https://www.arcgis.com/home/item.html?id='+elem.id+'\">Details</a>'"
+},
+{
+field: "Type",
+value: "elem.type"
+},
+{
+field: "Owner",
+value: "elem.owner"
+},
+{
+field: "Views",
+value: "elem.numViews"
+}
 ];*/
 
 
@@ -147,10 +147,10 @@ $(document).ready(function(){
     })
 
     $("#btn-showParams").click(function() {
-     var txt = $("#searchParams").is(':visible') ? 'Show params' : 'Hide params';
-     $(this).text(txt);
-     $("#searchParams").slideToggle();
-     return false;
+        var txt = $("#searchParams").is(':visible') ? 'Show params' : 'Hide params';
+        $(this).text(txt);
+        $("#searchParams").slideToggle();
+        return false;
     });
 
     // Loading useful searches
