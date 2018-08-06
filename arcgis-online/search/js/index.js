@@ -151,12 +151,26 @@ $(document).ready(function(){
         searchParams.num = $('input[name="numResults"]').val();
         searchParams.sortField = $('select[name="sortField"]').val();
         searchParams.sortOrder = $('select[name="sortOrder"]').val();
+        if(searchParams.sortField === 'relevance'){
+            delete searchParams.sortField;
+            delete searchParams.sortOrder;
+        }
         advancedSearchItems(searchParams, columns);
         if($("#searchParams").is(':visible')){
             $("#btn-showParams").click();
         }
         return false;
     })
+
+    $('select[name="sortField"]').change(function(){
+        if($(this).val() === 'relevance'){
+            $('select[name="sortOrder"]').attr("disabled", "disabled");
+        }else{
+            $('select[name="sortOrder"]').removeAttr("disabled");
+        }
+
+
+    });
 
     $("#btn-showParams").click(function() {
         var txt = $("#searchParams").is(':visible') ? 'Show params' : 'Hide params';

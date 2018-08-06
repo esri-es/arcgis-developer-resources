@@ -91,8 +91,8 @@ awesome resources, arcgis experts profiles?, etc.
             <!--
             TODO: https://developers.arcgis.com/rest/users-groups-and-items/search.htm
             num: (empty=all)
-            sortField (title, created, type, owner, modified, avgrating, numratings, numcomments, and numviews.)
-            sortOrder asc | desc
+            date mofied: Today, Yesterday, Last 7 Days, Last 30 Days, Custom Range...
+            Status: authoritative | deprecated
 
             Filter by Bounding box (checkbox+map)
             categories
@@ -117,21 +117,22 @@ awesome resources, arcgis experts profiles?, etc.
                 <label class="column-6">
                   Sort field:
                   <select class="modifier-class btn-fill" name="sortField">
+                    <option value="relevance" selected>Relevance</option>
                     <option value="title">Title</option>
-                    <option value="created">Creation date</option>
-                    <option value="type">Type</option>
                     <option value="owner">Owner</option>
-                    <option value="modified">Modification date</option>
+                    <option value="modified">Date modified</option>
+                    <option value="numviews">Num. views</option>
+                    <option value="created">Creation date</option>
                     <option value="avgrating">Average rating</option>
+                    <option value="type">Type</option>
                     <option value="numratings">Num. ratings</option>
                     <option value="numcomments">Num. comments</option>
-                    <option value="numviews" selected>Num. views</option>
                   </select>
                 </label>
 
                 <label class="column-6">
                   Sort order:
-                  <select class="modifier-class btn-fill" name="sortOrder">
+                  <select class="modifier-class btn-fill" name="sortOrder" disabled>
                     <option value="asc">Ascending</option>
                     <option value="desc" selected>Descending</option>
                 </select>
