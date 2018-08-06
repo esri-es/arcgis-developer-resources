@@ -83,6 +83,7 @@ function getSearchParams(){
     tmp.num = $('input[name="numResults"]').val();
     tmp.sortField = $('select[name="sortField"]').val();
     tmp.sortOrder = $('select[name="sortOrder"]').val();
+    tmp.start = 1;
     if(tmp.sortField === 'relevance'){
         delete tmp.sortField;
         delete tmp.sortOrder;
@@ -191,6 +192,7 @@ $(document).ready(function(){
 
     var qs = window.location.search.substr(1);
     if(qs){
+        searchParams = getSearchParams();
         searchForm.deserialize(qs);
         searchForm.submit();
     }
