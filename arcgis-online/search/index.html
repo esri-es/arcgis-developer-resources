@@ -63,7 +63,7 @@ awesome resources, arcgis experts profiles?, etc.
     <div class="grid-container">
 
         <form action="" method="post" id="search-form">
-            <div class="pre-4 column-12">
+            <div class="pre-3 column-13 padding-left-0">
                 <label class="trailer-0">
                     <input name="q" value='typekeywords:"Scene" AND typekeywords:"Service"' type="text" required class="input-search leader-2">
                 </label>
@@ -108,6 +108,36 @@ awesome resources, arcgis experts profiles?, etc.
             -->
 
             <label class="trailer-0">
+
+                <label class="column-6">
+                    Max results:
+                    <input type="number" name="numResults" value="100" required>
+                </label>
+
+                <label class="column-6">
+                  Sort field:
+                  <select class="modifier-class btn-fill" name="sortField">
+                    <option value="title">Title</option>
+                    <option value="created">Creation date</option>
+                    <option value="type">Type</option>
+                    <option value="owner">Owner</option>
+                    <option value="modified">Modification date</option>
+                    <option value="avgrating">Average rating</option>
+                    <option value="numratings">Num. ratings</option>
+                    <option value="numcomments">Num. comments</option>
+                    <option value="numviews" selected>Num. views</option>
+                  </select>
+                </label>
+
+                <label class="column-6">
+                  Sort order:
+                  <select class="modifier-class btn-fill" name="sortOrder">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+              </label>
+
+
                 <fieldset class="fieldset-checkbox trailer-0" id="fields">
                     <legend>Show fields (columns)</legend>
 
@@ -528,8 +558,7 @@ window.onload = function () {
                     </p>
 
                     <div class="text-right">
-                        <button class="btn js-modal-toggle">okay</button>
-                        <button class="btn btn-clear js-modal-toggle">cancel</button>
+                        <button class="btn js-modal-toggle">Close</button>
                     </div>
                 </div>
             </div>
@@ -546,8 +575,7 @@ window.onload = function () {
                     <iframe id="experts-iframe" src="https://esri-es.github.io/arcgis-experts/?awesome=false&header=false&suggestions=false"></iframe>
 
                     <div class="text-right">
-                        <button class="btn js-modal-toggle">okay</button>
-                        <button class="btn btn-clear js-modal-toggle">cancel</button>
+                        <button class="btn js-modal-toggle">Close</button>
                     </div>
                 </div>
             </div>
@@ -571,8 +599,7 @@ window.onload = function () {
                         </ul>
 
                         <div class="text-right">
-                            <button class="btn js-modal-toggle">okay</button>
-                            <button class="btn btn-clear js-modal-toggle">cancel</button>
+                            <button class="btn js-modal-toggle">Close</button>
                         </div>
                     </div>
                 </div>

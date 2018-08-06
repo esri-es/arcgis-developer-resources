@@ -1,10 +1,10 @@
 //copy($APP.ouptut)
-var searchParams={
-    q:'typekeywords:"Scene" AND typekeywords:"Service"',
-    num:100,
-    sortOrder:'desc',
-    start:1,
-    bbox:"-18.606063096102055,33.83293982733711,4.772843153891731,44.1971130946328"
+var searchParams = {
+    q: 'typekeywords:"Scene" AND typekeywords:"Service"',
+    num: 100,
+    sortOrder: 'desc',
+    start: 1,
+    bbox: "-18.606063096102055,33.83293982733711,4.772843153891731,44.1971130946328" // Spain
 }
 window.$APP={
     ouptut:[]
@@ -135,7 +135,10 @@ $(document).ready(function(){
             }
         });
 
-        searchParams.q = $('input[name="q"]').val()
+        searchParams.q = $('input[name="q"]').val();
+        searchParams.num = $('input[name="numResults"]').val();
+        searchParams.sortField = $('select[name="sortField"]').val();
+        searchParams.sortOrder = $('select[name="sortOrder"]').val();
         advancedSearchItems(searchParams, columns);
         return false;
     })
@@ -157,24 +160,3 @@ $(document).ready(function(){
 
 
 })
-
-
-
-require([
-      "esri/Map",
-      "esri/views/MapView",
-      "dojo/domReady!"
-    ], function(Map, MapView) {
-
-  var map = new Map({
-    basemap: "streets"
-  });
-
-  var view = new MapView({
-    container: "viewDiv",
-    map: map,
-    zoom: 4,
-    center: [15, 65] // longitude, latitude
-  });
-
-});
