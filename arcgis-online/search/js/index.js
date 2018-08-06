@@ -77,6 +77,18 @@ value: "elem.numViews"
 }
 ];*/
 
+function getSearchParams(){
+    var tmp = searchParams;
+    tmp.q = $('input[name="q"]').val();
+    tmp.num = $('input[name="numResults"]').val();
+    tmp.sortField = $('select[name="sortField"]').val();
+    tmp.sortOrder = $('select[name="sortOrder"]').val();
+    if(tmp.sortField === 'relevance'){
+        delete tmp.sortField;
+        delete tmp.sortOrder;
+    }
+    return tmp;
+}
 
 function advancedSearchItems(searchParams, columns){
     (function ($APP) {
@@ -136,31 +148,52 @@ function advancedSearchItems(searchParams, columns){
     })($APP);
 }
 
-$(document).ready(function(){
-    $('#search-form').submit(function(){
-        var params = $("#fields input:checked").toArray();
-        $APP.ouptut = [];
-        columns = params.map(function(elem){
-            return {
-                field: elem.name,
-                value: elem.value
-            }
-        });
+window.onpopstate = function(event) {
+  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  $('#search-form').deserialize(event.state);
+  executeSearch();
+};
 
-        searchParams.q = $('input[name="q"]').val();
-        searchParams.num = $('input[name="numResults"]').val();
-        searchParams.sortField = $('select[name="sortField"]').val();
-        searchParams.sortOrder = $('select[name="sortOrder"]').val();
-        if(searchParams.sortField === 'relevance'){
-            delete searchParams.sortField;
-            delete searchParams.sortOrder;
+function executeSearch(){
+    var params = $("#fields input:checked").toArray();
+    $APP.ouptut = [];
+    columns = params.map(function(elem){
+        return {
+            field: elem.name,
+            value: elem.value
         }
-        advancedSearchItems(searchParams, columns);
-        if($("#searchParams").is(':visible')){
-            $("#btn-showParams").click();
-        }
+    });
+
+    searchParams = getSearchParams();
+    advancedSearchItems(searchParams, columns);
+    if($("#searchParams").is(':visible')){
+        $("#btn-showParams").click();
+    }
+}
+
+$(document).ready(function(){
+    var searchForm = $('#search-form');
+
+    searchForm.submit(function(){
+        executeSearch();
+
+        // Update state & change URL
+        var state = searchForm.serialize(),
+            stateTitle = 'Search: '+$('input[name="q"]').val(),
+            newUrl = window.location.pathname+'?'+searchForm.serialize();
+
+        window.history.pushState(state, stateTitle, newUrl);
+
         return false;
-    })
+    });
+
+    // If query string restore form and search
+
+    var qs = window.location.search.substr(1);
+    if(qs){
+        searchForm.deserialize(qs);
+        searchForm.submit();
+    }
 
     $('select[name="sortField"]').change(function(){
         if($(this).val() === 'relevance'){
@@ -186,6 +219,48 @@ $(document).ready(function(){
         $("#list-useful-searches").html(htmlOutput);
     });
 
-
+    // Quickfix (to avoid loading iframe if not neccesary)
+    $('[data-modal="modal-experts"]').click(function(){
+        var iframe = $('#experts-iframe');
+        if(!iframe.attr('src')){
+            iframe.attr('src', 'https://esri-es.github.io/arcgis-experts/?awesome=false&header=false&suggestions=false');
+        }
+    });
 
 })
+
+
+$.fn.deserialize = function (serializedString)
+{
+    var $form = $(this);
+    $form[0].reset();    // (A) optional
+    serializedString = serializedString.replace(/\+/g, '%20'); // (B)
+    var formFieldArray = serializedString.split("&");
+
+    $('#search-form input[type="checkbox"]').prop('checked', false);
+
+    // Loop over all name-value pairs
+    $.each(formFieldArray, function(i, pair){
+        var nameValue = pair.split("=");
+        var name = decodeURIComponent(nameValue[0]); // (C)
+        var value = decodeURIComponent(nameValue[1]);
+        // Find one or more fields
+        var $field = $form.find('[name="' + name + '"]');
+
+        // Checkboxes and Radio types need to be handled differently
+        if ($field[0].type == "radio" || $field[0].type == "checkbox")
+        {
+            var $fieldWithValue = $field.filter('[value="' + value + '"]');
+            var isFound = ($fieldWithValue.length > 0);
+            // Special case if the value is not defined; value will be "on"
+            if (!isFound && value == "on") {
+                $field.first().prop("checked", true);
+            } else {
+                $fieldWithValue.prop("checked", isFound);
+            }
+        } else { // input, textarea
+            $field.val(value);
+        }
+    });
+    return this;
+}
