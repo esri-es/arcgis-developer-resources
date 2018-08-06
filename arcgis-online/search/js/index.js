@@ -140,6 +140,9 @@ $(document).ready(function(){
         searchParams.sortField = $('select[name="sortField"]').val();
         searchParams.sortOrder = $('select[name="sortOrder"]').val();
         advancedSearchItems(searchParams, columns);
+        if($("#searchParams").is(':visible')){
+            $("#btn-showParams").click();
+        }
         return false;
     })
 
