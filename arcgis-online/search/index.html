@@ -33,6 +33,9 @@ awesome resources, arcgis experts profiles?, etc.
     [data-modal="modal-experts"] .modal-content{
         height: 100%;
     }
+    #searchParams{
+        border: 1px dotted #ccc;
+    }
     </style>
 </head>
 
@@ -69,7 +72,7 @@ awesome resources, arcgis experts profiles?, etc.
                 <button type="submit" class="btn btn-fill">Search items</button>
             </div>
             <div class="column-3 leader-2">
-                <button type="submit" class="btn btn-fill btn-clear">Show params</button>
+                <button type="submit" class="btn btn-fill btn-clear" id="btn-showParams">Show params</button>
             </div>
             <div class="pre-3 column-19 font-size--2
             text-center leader-half trailer-2">
@@ -83,7 +86,7 @@ awesome resources, arcgis experts profiles?, etc.
             |
             <a href="https://github.com/esri-es/awesome-arcgis/tree/master/esri#arcgis-online-users" target="_blank">Esri's accounts</a>
         </div>
-        <div class="pre-3 column-19" id="searchParams">
+        <div class="pre-3 column-19 padding-left-1 padding-leader-1 padding-right-1 padding-trailer-1" id="searchParams" style="display:none">
 
             <!--
             TODO: https://developers.arcgis.com/rest/users-groups-and-items/search.htm
@@ -96,10 +99,16 @@ awesome resources, arcgis experts profiles?, etc.
             categoryFilters
             countFields: tags, type, access, contentstatus, categories
             countSize: countSize=200
+
+            <label>
+                <input name="extension" type="checkbox" checked>
+                Filter by extension
+            </label>
+            <iframe src="extensionMap.html"></iframe>
             -->
 
             <label class="trailer-0">
-                <fieldset class="fieldset-checkbox" id="fields">
+                <fieldset class="fieldset-checkbox trailer-0" id="fields">
                     <legend>Show fields (columns)</legend>
 
                     <label>
@@ -470,6 +479,17 @@ window.onload = function () {
 <a href="{{:url}}" target="_blank">{{:content}}</a> (by {{:contributor}})
 </li>
 {{/for}}
+</script>
+
+<script id="itemTypesTmpl" type="text/x-jsrender">
+<select name="itemType" required>
+    <optgroup label="Maps">
+        <option value="Web Map">Web Map</option>
+    </optgroup>
+
+    <optgroup label="Layers">
+        <option value="Feature Service">Feature Service</option>
+    </optgroup>
 </script>
 
 <div class="js-modal modal-overlay modifier-class" data-modal="modal-help">

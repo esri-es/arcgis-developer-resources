@@ -1,0 +1,72 @@
+<select name="itemType" required>
+{
+    "category":"Maps",
+    "elems":[
+        {
+            "name": "Web Map",
+            "query": "type:\"Web Map\"",
+            "tooltip": "Web map authored using the arcgis.com Javascript Web Map Viewer. Usable by web, mobile, and desktop clients",
+            "subtypes":[
+                {
+                    "name": "Collector ready",
+                    "query": "type:\"Web Map\" typekeywords:\"Collector\"",
+                    "tooltip": "Collector refers to a web map that is Collector ready and will be available in Collector. The Map contains at least one editable layer that supports versioning."
+                },
+                {
+                    "name": "Offline",
+                    "query": "type:\"Web Map\" typekeywords:\"Offline\"",
+                    "tooltip": "Offline refers to the web map being capable of working offline. The map contains only layers that are offline capable."
+                }
+            ]
+        },
+        {
+            "name": "CityEngine Web Scene",
+            "query": "type:\"CityEngine Web Scene\"",
+            "tooltip": "An interactive 3D display of geospatial content created with CityEngine. (.3ws)"
+        },
+        {
+            "name": "Web Scene",
+            "query": "type:\"Web Scene\"",
+            "tooltip": "An interactive 3D display of web layers containing geographic information."
+        },
+        {
+            "name": "360 VR Experience",
+            "query": "type:\"360 VR Experience\"",
+            "tooltip": "An 360-degree virtual reality experience that lets you explore a set of connected, geo-located panoramic 3D visualizations or photos."
+        },
+        {
+            "name": "Pro Map",
+            "query": "type:\"Pro Map\"",
+            "tooltip": "ArcGIS Pro map file (mapx)."
+        },
+        {
+            "name": "Map Area",
+            "query": "type:\"Map Area\"",
+            "tooltip": "Map extent area definition for offline mapping use."
+        },
+    ],
+    "category":"Layers",
+    "elems":[
+        {
+            "name": "Feature Service",
+            "query": "type:\"Feature Service\"",
+            "tooltip": "The URL to the service is stored in the url property of the item. Optional JSON data contains overridden service properties."
+        },
+        {
+            "name": "Map Service",
+            "query": "type:\"Map Service\"",
+            "tooltip": "The URL to the service is stored in the url property of the item. Optional JSON data contains overridden service properties."
+        },
+        {
+            "name": "Image Service",
+            "query": "type:\"Image Service\"",
+            "tooltip": "The URL to the service is stored in the url property of the item. Optional JSON data contains overridden service properties."
+        },
+        {
+            "name": "KML",
+            "query": "type:\"KML\"",
+            "tooltip": "KML Network Link or KML File (.kmz) If a file, then the data resource retrieves the file and can be used as a network link. If a network link, then the url property contains the URL for the network link."
+        },
+
+    ]
+}

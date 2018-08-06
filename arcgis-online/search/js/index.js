@@ -140,6 +140,13 @@ $(document).ready(function(){
         return false;
     })
 
+    $("#btn-showParams").click(function() {
+     var txt = $("#searchParams").is(':visible') ? 'Show params' : 'Hide params';
+     $(this).text(txt);
+     $("#searchParams").slideToggle();
+     return false;
+    });
+
     // Loading useful searches
     var template = $.templates("#usefulSearchesTmpl");
     $.getJSON( "../useful-searches.json",function(data){
@@ -150,3 +157,24 @@ $(document).ready(function(){
 
 
 })
+
+
+
+require([
+      "esri/Map",
+      "esri/views/MapView",
+      "dojo/domReady!"
+    ], function(Map, MapView) {
+
+  var map = new Map({
+    basemap: "streets"
+  });
+
+  var view = new MapView({
+    container: "viewDiv",
+    map: map,
+    zoom: 4,
+    center: [15, 65] // longitude, latitude
+  });
+
+});
