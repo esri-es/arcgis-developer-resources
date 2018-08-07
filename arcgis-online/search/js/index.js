@@ -39,7 +39,7 @@ function extentToString(elem) {
 
 function generateThumbnail(elem){
     if(!elem.thumbnail){
-        console.warn(`Thumbnail not found for item: ${elem.id} (setting default img)`);
+        //console.warn(`Thumbnail not found for item: ${elem.id} (setting default img)`);
         elem.thumbnail = 'imgs/ago_downloaded.png';
     }else{
         elem.thumbnail = `https://www.arcgis.com/sharing/rest/content/items/${elem.id}/info/${elem.thumbnail}`;
@@ -77,7 +77,8 @@ value: "elem.numViews"
 }
 ];*/
 
-function getSearchParams(){
+// Recover search params from HTML and return object
+function prepareSearchParams(){
     var tmp = searchParams;
     tmp.q = $('input[name="q"]').val();
     tmp.num = $('input[name="numResults"]').val();
@@ -100,14 +101,14 @@ function advancedSearchItems(searchParams, columns){
         var s = document.createElement('script');
         s.setAttribute('src', '//cdn.polyfill.io/v2/polyfill.js?features=es5,Promise,fetch');
         s.addEventListener('load', function(){
-            console.log('Polyfills loaded');
+            //console.log('Polyfills loaded');
         });
         document.body.appendChild(s);
 
         var d = document.createElement('script');
         d.setAttribute('src', '//unpkg.com/@esri/arcgis-rest-request@1.6.0/dist/umd/request.umd.js');
         d.addEventListener('load', function(){
-            console.log('ArcGIS REST loaded');
+            //console.log('ArcGIS REST loaded');
             searchParams.f='json';
 
             var params={
@@ -115,7 +116,7 @@ function advancedSearchItems(searchParams, columns){
                 params:searchParams
             }
             arcgisRest.request("https://www.arcgis.com/sharing/rest/search",params).then(response => {
-                console.log(response);
+                //console.log(response);
                 $APP.totalResults = response.total;
                 $APP.ouptut = $APP.ouptut.concat(response.results.map(function(elem){
 
@@ -155,7 +156,7 @@ function advancedSearchItems(searchParams, columns){
 }
 
 window.onpopstate = function(event) {
-  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  //console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
   $('#search-form').deserialize(event.state);
   executeSearch();
 };
@@ -170,7 +171,7 @@ function executeSearch(){
         }
     });
 
-    searchParams = getSearchParams();
+    searchParams = prepareSearchParams();
     advancedSearchItems(searchParams, columns);
     if($("#searchParams").is(':visible')){
         $("#btn-showParams").click();
@@ -184,9 +185,9 @@ $(document).ready(function(){
         executeSearch();
 
         // Update state & change URL
-        var state = searchForm.serialize(),
+        var state = searchForm.serializeParams(),
             stateTitle = 'Search: '+$('input[name="q"]').val(),
-            newUrl = window.location.pathname+'?'+searchForm.serialize();
+            newUrl = window.location.pathname+'?'+searchForm.serializeParams();
 
         window.history.pushState(state, stateTitle, newUrl);
 
@@ -197,7 +198,7 @@ $(document).ready(function(){
 
     var qs = window.location.search.substr(1);
     if(qs){
-        searchParams = getSearchParams();
+        //searchParams = prepareSearchParams();
         searchForm.deserialize(qs);
         searchForm.submit();
     }
@@ -214,6 +215,7 @@ $(document).ready(function(){
 
     $("#btn-showParams").click(function() {
         var txt = $("#searchParams").is(':visible') ? 'Show params' : 'Hide params';
+        document.getElementById('extensionMap').contentWindow.postMessage(searchParams.bbox, '*');
         $(this).text(txt);
         $("#searchParams").slideToggle();
         return false;
@@ -236,6 +238,15 @@ $(document).ready(function(){
 
 })
 
+$.fn.serializeParams = function (){
+
+    var tmp = this.serialize();
+    if(tmp.indexOf('&extension=on')){
+        //console.log('Filtering by extension');
+        tmp=tmp.replace('&extension=on',`&extension=on&bbox=${encodeURIComponent(searchParams.bbox)}`);
+    }
+    return tmp;
+};
 
 $.fn.deserialize = function (serializedString)
 {
@@ -255,27 +266,41 @@ $.fn.deserialize = function (serializedString)
         var $field = $form.find('[name="' + name + '"]');
 
         // Checkboxes and Radio types need to be handled differently
-        if ($field[0].type == "radio" || $field[0].type == "checkbox")
-        {
-            var $fieldWithValue = $field.filter('[value="' + value + '"]');
-            var isFound = ($fieldWithValue.length > 0);
-            // Special case if the value is not defined; value will be "on"
-            if (!isFound && value == "on") {
-                $field.first().prop("checked", true);
-            } else {
-                $fieldWithValue.prop("checked", isFound);
+        if($field[0] && $field[0].type){
+            if ($field[0].type == "radio" || $field[0].type == "checkbox")
+            {
+                var $fieldWithValue = $field.filter('[value="' + value + '"]');
+                var isFound = ($fieldWithValue.length > 0);
+                // Special case if the value is not defined; value will be "on"
+                if (!isFound && value == "on") {
+                    $field.first().prop("checked", true);
+                } else {
+                    $fieldWithValue.prop("checked", isFound);
+                }
+            } else { // input, textarea
+                $field.val(value);
             }
-        } else { // input, textarea
-            $field.val(value);
+        } else{
+            // CUSTOM CODE TO SET IFRAME EXTENSION
+            if(serializedString.indexOf('&extension=on&bbox=')!==-1){
+                console.log("Need to SET IFRAME EXTENSION")
+                console.log("bbox=",value)
+                searchParams.bbox=value;
+                document.getElementById('extensionMap').contentWindow.postMessage(value, '*');
+            }
+
         }
     });
+
+
+
     return this;
 }
 
 window.onmessage = function(e){
-    if(e.data){
+    if(e.data != null){
         $APP.projectedExtent = e.data;
-        console.log("From parent=",$APP.projectedExtent)
+        //console.log("From parent=",$APP.projectedExtent)
         searchParams.bbox = `${e.data.xmin}, ${e.data.ymin}, ${e.data.xmax}, ${e.data.ymax}`
     }
 };

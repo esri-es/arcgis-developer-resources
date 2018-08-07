@@ -25,8 +25,9 @@
       "esri/core/watchUtils",
       "esri/geometry/SpatialReference",
       "esri/geometry/projection",
+      "esri/geometry/Extent",
       "dojo/domReady!"
-  ], function(Map, MapView, watchUtils, SpatialReference, projection) {
+  ], function(Map, MapView, watchUtils, SpatialReference, projection, Extent) {
 
       var map = new Map({
           basemap: "streets"
@@ -64,6 +65,24 @@
               })
           }
       });
+
+      window.onmessage = function(e){
+          if(e.data != null){
+              console.log("Need to setup extension to=",e.data)
+              var extent=e.data.split(",");
+              //searchParams.bbox = `${e.data.xmin}, ${e.data.ymin}, ${e.data.xmax}, ${e.data.ymax}`
+              view.extent = new Extent({
+                  xmin: extent[0].trim(),
+                  ymin: extent[1].trim(),
+                  xmax: extent[2].trim(),
+                  ymax: extent[3].trim(),
+                  spatialReference: {
+                    wkid: 4326
+                  }
+                });
+
+          }
+      };
   });
   </script>
 </head>
