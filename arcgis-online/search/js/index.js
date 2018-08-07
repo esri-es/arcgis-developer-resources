@@ -88,6 +88,9 @@ function getSearchParams(){
         delete tmp.sortField;
         delete tmp.sortOrder;
     }
+    if(!$('input[name="extension"]')[0].checked){
+        delete tmp.bbox;
+    }
     return tmp;
 }
 
@@ -268,3 +271,11 @@ $.fn.deserialize = function (serializedString)
     });
     return this;
 }
+
+window.onmessage = function(e){
+    if(e.data){
+        $APP.projectedExtent = e.data;
+        console.log("From parent=",$APP.projectedExtent)
+        searchParams.bbox = `${e.data.xmin}, ${e.data.ymin}, ${e.data.xmax}, ${e.data.ymax}`
+    }
+};

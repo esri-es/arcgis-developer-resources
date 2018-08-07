@@ -19,24 +19,52 @@
   <script src="https://js.arcgis.com/4.8/"></script>
 
   <script>
-    require([
+  require([
       "esri/Map",
       "esri/views/MapView",
+      "esri/core/watchUtils",
+      "esri/geometry/SpatialReference",
+      "esri/geometry/projection",
       "dojo/domReady!"
-    ], function(Map, MapView) {
+  ], function(Map, MapView, watchUtils, SpatialReference, projection) {
 
       var map = new Map({
-        basemap: "streets"
+          basemap: "streets"
       });
 
       var view = new MapView({
-        container: "viewDiv",
-        map: map,
-        zoom: 4,
-        center: [15, 65] // longitude, latitude
+          container: "viewDiv",
+          map: map,
+          zoom: 4,
+          center: [15, 65] // longitude, latitude
       });
 
-    });
+      if (!projection.isSupported()) {
+          alert("Client-side projection is not supported in this browser.");
+          return;
+      }
+      // load the projection module
+      window.$APP = {
+          projection: projection,
+          outSpatialReference: new SpatialReference({
+              wkid: 4326
+          })
+      };
+
+      watchUtils.whenTrue(view, "stationary", function() {
+
+          // Get the new extent of the view only when view is stationary.
+          if (view.extent) {
+              $APP.projection.load().then(function() {
+                  var projectedExtent = $APP.projection.project(view.extent,$APP.outSpatialReference)
+                  console.log("Geographic extent=", projectedExtent.extent.toJSON())
+                  if(window.parent){
+                      window.parent.postMessage(projectedExtent.extent.toJSON(), '*');
+                  }
+              })
+          }
+      });
+  });
   </script>
 </head>
 

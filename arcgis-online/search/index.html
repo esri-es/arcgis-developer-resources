@@ -29,6 +29,11 @@ awesome resources, arcgis experts profiles?, etc.
         height: 80%;
         border: 1px solid #ccc;
     }
+    #extensionMap{
+        width:100%;
+        border: 1px solid #ccc;
+        height: 400px;
+    }
     #fields label{
         display: inline-block;
         margin-right: .7rem;
@@ -112,15 +117,9 @@ awesome resources, arcgis experts profiles?, etc.
             countFields: tags, type, access, contentstatus, categories
             countSize: countSize=200
 
-            <label>
-                <input name="extension" type="checkbox" checked>
-                Filter by extension
-            </label>
-            <iframe src="extensionMap.html"></iframe>
             -->
 
             <label class="trailer-0">
-
                 <label class="column-6">
                     Max results:
                     <input type="number" name="numResults" value="100" required>
@@ -467,6 +466,12 @@ awesome resources, arcgis experts profiles?, etc.
                         </span>
                     </label>
         </fieldset>
+
+        <label class="leader-1">
+            <input id="extension" name="extension" type="checkbox">
+            Filter by extension
+        </label>
+        <iframe id="extensionMap" src="extensionMap.html"></iframe>
     </label>
 </div>
 </form>
