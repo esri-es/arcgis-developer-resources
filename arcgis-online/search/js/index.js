@@ -113,7 +113,8 @@ function advancedSearchItems(searchParams, columns){
             }
             arcgisRest.request("https://www.arcgis.com/sharing/rest/search",params).then(response => {
                 console.log(response);
-                $APP.ouptut=$APP.ouptut.concat(response.results.map(function(elem){
+                $APP.totalResults = response.total;
+                $APP.ouptut = $APP.ouptut.concat(response.results.map(function(elem){
 
                     var output = [];
                     for(i=0; i<columns.length; i++){
@@ -138,7 +139,8 @@ function advancedSearchItems(searchParams, columns){
                     var htmlOutput = template.render({
                         searchParams: searchParams,
                         columns: columns,
-                        results: $APP.ouptut
+                        results: $APP.ouptut,
+                        totalResults: $APP.totalResults
                     });
 
                     $("#results").html(htmlOutput);
