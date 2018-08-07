@@ -149,9 +149,14 @@ awesome resources, arcgis experts profiles?, etc.
                 </select>
               </label>
 
+              <label class="leader-1">
+                  <input id="extension" name="extension" type="checkbox">
+                  Filter by extension
+              </label>
+              <iframe id="extensionMap" src="extensionMap.html"></iframe>
 
-                <fieldset class="fieldset-checkbox trailer-0" id="fields">
-                    <legend>Show fields (columns)</legend>
+                <fieldset class="fieldset-checkbox trailer-0 leader-1" id="fields">
+                    <legend>Customize results table (fields shown)</legend>
 
                     <label>
                         <input name="Thumbnail" type="checkbox" checked value="generateThumbnail(elem)">
@@ -466,12 +471,6 @@ awesome resources, arcgis experts profiles?, etc.
                         </span>
                     </label>
         </fieldset>
-
-        <label class="leader-1">
-            <input id="extension" name="extension" type="checkbox">
-            Filter by extension
-        </label>
-        <iframe id="extensionMap" src="extensionMap.html"></iframe>
     </label>
 </div>
 </form>
@@ -495,7 +494,7 @@ window.onload = function () {
 </script>
 
 <script id="itemTmpl" type="text/x-jsrender">
-<p class="font-size--2"><strong>{{:results.length}} items of {{:totalResults}} found</strong> (<a href="#">Show REST endpoint</a>)</p>
+<p class="font-size--2"><strong>{{:results.length}} items of {{:totalResults}} found</strong> (<a href="#">Show REST query endpoint</a>)</p>
 
 <table class="table modifier-class table-striped">
 <thead>
