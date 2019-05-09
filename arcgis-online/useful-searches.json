@@ -87,6 +87,11 @@
 		"content": "User's public groups",
 		"url": "http://www.arcgis.com/home/search.html?q=owner%3Aesri&t=groups&focus=groups&start=1&sortOrder=desc&sortField=relevance",
 		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
-	}
+	},
+    {
+        "content": "Living Atlas designed content",
+		"url": "https://www.arcgis.com/home/search.html?q=groupdesignations%3A%22livingatlas%22&restrict=false&start=1&num=20&focus=maps-webmaps&sortOrder=true&sortField=relevance#content",
+		"contributor": "<a href=\"https://esri-es.github.io/arcgis-experts/#expert=raul-jimenez\">Raul Jiménez</a>"
+    }
 
 ]
