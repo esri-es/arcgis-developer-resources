@@ -1,48 +1,44 @@
 # ArcGIS Developer Tips And Tricks
-Compilation of Tips and Tricks for ArcGIS Developers
 
-* [JavaScript Developers](./javascript-developers)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-Technology agnostic
+
+- [General resources](#general-resources)
+- [Resources for developers (in Spanish)](#resources-for-developers-in-spanish)
+- [Focused resources](#focused-resources)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## General resources
+
+> The following are resources **in English**
+
+|Resource|Type|Description
+|---|---|---|
+|[Awesome ArcGIS](https://github.com/esri-es/awesome-arcgis)|Wiki|The largest collection of resources about ArcGIS that you will find (organized by products, concepts, ...)
+|[ArcGIS Search](https://esri-es.github.io/arcgis-search/#gsc.tab=0)|Search Engine|Save time by searching over 240 cured sources at once 🔍 🤠 ⏰
+|[ArcGIS Online advanced (items) search](https://esri-es.github.io/arcgis-developer-tips-and-tricks/arcgis-online/search/)|Search engine|Perform advance query searches within ArcGIS Online. Find Mobile Map Packages, VR360, LAS files, ... anything!
+|[ArcGIS Experts](https://esri-es.github.io/arcgis-experts)|Search Engine|Find and follow ArcGIS Experts
+|[ArcGIS Online Credits](https://esri-es.github.io/awesome-arcgis/arcgis/products/arcgis-online/credits/)|Documentation|Detailed operation of ArcGIS Online credits. Includes frequently asked questions.
+|[Introductory guide to Hosted Feature Services](https://github.com/esri-es/ArcGIS-REST-API/tree/master/HostedFeatureServices#hosted-feature-service---services-reference)|Documentation|Hosted Feature Services guide for **new** ArcGIS Developers
+|[ArcGIS-REST-API](https://github.com/esri-es/ArcGIS-REST-API)|Repository|Postman collections for ArcGIS REST APIs
+|[ArcGIS Platform Infographic](https://docs.google.com/drawings/d/1w_tBCVPdPULUehfFBJaqyH7ywZyxZLBCeemWFa3o2Ho/edit?usp=sharing)|Infographic|Overview of technologies available in an ArcGIS implementation
+|[Esri Product Listing](https://esri-es.github.io/esri-products/)|Website| Listing of Esri Products with a link to product resource pages
+|[Awesome ArcGIS Organization](https://awesome-arcgis.maps.arcgis.com/home/groups.html?sortOrder=asc&sortField=title)|AGO Organization| Compilation Cool demos and many more
+
+> The following are resources **in Spanish**
+
+|Resource|Type|Description|Language
+|---|---|---|---|
+|[Developers licensing](https://github.com/esri-es/licenciamiento-developers)|Documentation|Repository with everything you need to calculate the cost of developing and deploying your developments // Questions? -> Open an issue|Spanish
+|[Créditos de ArcGIS Online](https://www.arcgis.com/apps/MapJournal/index.html?appid=3875c10877da43aaa215d0b216cb2137&section=8)|Video|Detailed operation of ArcGIS Online credits. Includes frequently asked questions.|Spanish
+|[Resolving doubts (Tips & Tricks)](https://community.esri.com/groups/geodev-spain/blog/2018/06/14/resolver-dudas-tips-tricks)|Artícle|Tips and tools to solve your doubts|Spanish
+|[Sobre Esri & ArcGIS](https://geogeeks.maps.arcgis.com/apps/MapSeries/index.html?appid=5a6400a6d9bb45d4a6c389b11de39b45)|Website|Web for those who do not know what GIS is, the ArcGIS platform or do not know Esri|Spanish
+|[Esri **Spain** Startup Program](https://docs.google.com/presentation/d/1v3y7cRC99Rfj34Gziyrxo-X3Y7DuPHhgGvVs5ivx4YQ/edit?usp=sharing)|PPT|Presentation presenting the startup program, data and technologies to work with geolocated information and maps|Spanish
+
+## Focused resources
+
+* [Web Developers](./javascript-developers)
 * [Search content](./search-content/README.md)
-* ArcGIS Online
 * [REST API](./rest-api/README.md)
-
-## General tips & tricks
-
-### Optimized flow for solving your needs
-
-This diagram shows the best way to solve your own problems or doubts, share ideas, etc.
-
-[![Diagrama Flujo óptimo para problemas, dudas, consultas, ideas, etc. - ArcGIS Developers](https://docs.google.com/drawings/d/e/2PACX-1vTwKhAflcJlY6FEiZBXazN03oAnOTeuA1DwRFtDkukiVV_T5I4evJpXRwi2AbP64HefgyxaGJN1C9mf/pub?w=800)](https://docs.google.com/drawings/d/10wn0eFBefNuNB2cVS_Z0R3jRYSH4i3apV_uCE2RFU-M/edit?usp=sharing)
-
-### How to use GeoNet
-
-[GeoNet](https://community.esri.com/) is the Official Esri Community, it is used for: blog posting, Q&A, sharing resources (documents, code, etc), and more more. 
-
-[Learn how to GeoNet works](https://community.esri.com/docs/DOC-11240-geonet-manual)
-
-### Follow ArcGIS experts
-
-If you want to be updated we recommend you to follow [the experts](https://esri-es.github.io/arcgis-experts).
-
-[![ArcGIS Experts](https://esri-es.github.io/arcgis-experts/assets/imgs/arcgis-experts-tool.png)](https://esri-es.github.io/arcgis-experts)
-
-### Search ArcGIS content
-
-Are you looking for data sources, explanations, videos, code snippets, .... use the [customized Google Search Engine](https://github.com/esri-es/arcgis-search): Save time searching in more than 50 curated domains at once.
-
-### More advices to search resources
-
-In Spanish, [**translatation pending**](https://github.com/esri-es/arcgis-developer-tips-and-tricks/issues/1).
-
-* Para buscar recursos de **forma desestructurada** -> usar el motor [Esri Search](https://esri-es.github.io/arcgis-search) (busca en múltiples fuentes: esri.com, cuentas de Github de Esri, esri.es, arcgis.com, etc)
-
-* Para buscar de una **forma estructurada** -> usar [Awesome list de recursos](https://esri-es.github.io/awesome-arcgis)
-
-* Para buscar charlas en vídeo -> usar el buscador de vídeos del canal de Youtube “[Esri Events](https://www.youtube.com/channel/UC_yE3TatdZKAXvt_TzGJ6mw)”
-![Youtube Screenshot](https://user-images.githubusercontent.com/826965/32048072-6d1ed95e-ba48-11e7-97b2-1e46c7919337.jpg)
-
-* Para buscar presentaciones -> buscar en Google filtrando contenidos de proceedings.esri.com por un referente en la materia, por ejemplo: ["Stephen Sylvia" site:proceedings.esri.com](https://www.google.es/search?q=%22Stephen+Sylvia%22+site%3Aproceedings.esri.com&oq=%22Stephen+Sylvia%22+site%3Aproceedings.esri.com&gs_l=psy-ab.3...14716.15588.0.15866.4.4.0.0.0.0.70.256.4.4.0....0...1.1.64.psy-ab..0.0.0....0.EUxMn4ZT6nU)
-
-* Buscar expertos a quien seguir: busca speakers en charlas
