@@ -24,6 +24,7 @@
 |[Introductory guide to Hosted Feature Services](https://github.com/esri-es/ArcGIS-REST-API/tree/master/HostedFeatureServices#hosted-feature-service---services-reference)|Documentation|Hosted Feature Services guide for **new** ArcGIS Developers
 |[ArcGIS-REST-API](https://github.com/esri-es/ArcGIS-REST-API)|Repository|Postman collections for ArcGIS REST APIs
 |[ArcGIS Platform Infographic](https://docs.google.com/drawings/d/1w_tBCVPdPULUehfFBJaqyH7ywZyxZLBCeemWFa3o2Ho/edit?usp=sharing)|Infographic|Overview of technologies available in an ArcGIS implementation
+|[ArcGIS Developers Youtube Channel](https://www.youtube.com/channel/UCtOKtU_kXqz5ZlJ_-OJc_dw?view_as=subscriber)|Videos|Channel with many playlists for developers
 |[Esri Product Listing](https://esri-es.github.io/esri-products/)|Website| Listing of Esri Products with a link to product resource pages
 |[Awesome ArcGIS Organization](https://awesome-arcgis.maps.arcgis.com/home/groups.html?sortOrder=asc&sortField=title)|AGO Organization| Compilation Cool demos and many more
 
