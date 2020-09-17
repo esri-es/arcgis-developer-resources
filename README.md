@@ -29,13 +29,14 @@
 
 > The following are resources **in Spanish**
 
-|Resource|Type|Description|Language
-|---|---|---|---|
-|[Developers licensing](https://github.com/esri-es/licenciamiento-developers)|Documentation|Repository with everything you need to calculate the cost of developing and deploying your developments // Questions? -> Open an issue|Spanish
-|[Créditos de ArcGIS Online](https://www.arcgis.com/apps/MapJournal/index.html?appid=3875c10877da43aaa215d0b216cb2137&section=8)|Video|Detailed operation of ArcGIS Online credits. Includes frequently asked questions.|Spanish
-|[Resolving doubts (Tips & Tricks)](https://community.esri.com/groups/geodev-spain/blog/2018/06/14/resolver-dudas-tips-tricks)|Artícle|Tips and tools to solve your doubts|Spanish
-|[Sobre Esri & ArcGIS](https://geogeeks.maps.arcgis.com/apps/MapSeries/index.html?appid=5a6400a6d9bb45d4a6c389b11de39b45)|Website|Web for those who do not know what GIS is, the ArcGIS platform or do not know Esri|Spanish
-|[Esri **Spain** Startup Program](https://docs.google.com/presentation/d/1v3y7cRC99Rfj34Gziyrxo-X3Y7DuPHhgGvVs5ivx4YQ/edit?usp=sharing)|PPT|Presentation presenting the startup program, data and technologies to work with geolocated information and maps|Spanish
+|Resource|Type|Description
+|---|---|---|
+|[Developers licensing](https://github.com/esri-es/licenciamiento-developers)|Documentation|Repository with everything you need to calculate the cost of developing and deploying your developments // Questions? -> Open an issue
+|[Créditos de ArcGIS Online](https://www.arcgis.com/apps/MapJournal/index.html?appid=3875c10877da43aaa215d0b216cb2137&section=8)|Video|Detailed operation of ArcGIS Online credits. Includes frequently asked questions.
+|[Web Map e Items](https://esri-es.github.io/awesome-arcgis/esri/open-vision/open-specifications/web-map/#spanish)|Documentation|Detailed information about how web maps, items and configurable apps works|
+|[Resolver dudas (Tips & Tricks)](https://community.esri.com/groups/geodev-spain/blog/2018/06/14/resolver-dudas-tips-tricks)|Artícle|Tips and tools to solve your doubts
+|[Sobre Esri & ArcGIS](https://geogeeks.maps.arcgis.com/apps/MapSeries/index.html?appid=5a6400a6d9bb45d4a6c389b11de39b45)|Website|Web for those who do not know what GIS is, the ArcGIS platform or do not know Esri
+|[Esri **Spain** Startup Program](https://docs.google.com/presentation/d/1v3y7cRC99Rfj34Gziyrxo-X3Y7DuPHhgGvVs5ivx4YQ/edit?usp=sharing)|PPT|Presentation presenting the startup program, data and technologies to work with geolocated information and maps
 
 ## Focused resources
 
