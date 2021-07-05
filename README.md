@@ -18,7 +18,7 @@
 |---|---|---|
 |[Awesome ArcGIS](https://github.com/esri-es/awesome-arcgis)|Wiki|The largest collection of resources about ArcGIS that you will find (organized by products, concepts, ...)
 |[ArcGIS Search](https://esri-es.github.io/arcgis-search/#gsc.tab=0)|Search Engine|Save time by searching over 240 cured sources at once 🔍 🤠 ⏰
-|[ArcGIS Online advanced (items) search](https://esri-es.github.com/arcgis-developer-resources/arcgis-online/search/)|Search engine|Perform advance query searches within ArcGIS Online. Find Mobile Map Packages, VR360, LAS files, ... anything!
+|[ArcGIS Online advanced (items) search](https://esri-es.github.io/arcgis-developer-resources/arcgis-online/search/)|Search engine|Perform advance query searches within ArcGIS Online. Find Mobile Map Packages, VR360, LAS files, ... anything!
 |[ArcGIS Experts](https://esri-es.github.io/arcgis-experts)|Search Engine|Find and follow ArcGIS Experts
 |[ArcGIS Online Credits](https://esri-es.github.io/awesome-arcgis/arcgis/products/arcgis-online/credits/)|Documentation|Detailed operation of ArcGIS Online credits. Includes frequently asked questions.
 |[Introductory guide to Hosted Feature Services](https://github.com/esri-es/ArcGIS-REST-API/tree/master/HostedFeatureServices#hosted-feature-service---services-reference)|Documentation|Hosted Feature Services guide for **new** ArcGIS Developers
